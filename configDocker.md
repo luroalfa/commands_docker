@@ -3,6 +3,20 @@ Este comando se utiliza para ejecutar una imagen de Microsoft SQL Server 2022 en
 ```
 docker run --name SQLServer -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=YOUR_PASS' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
 ```
+Los parámetros utilizados en este comando son:
+
+* **--name SQLServer:** Este parámetro se utiliza para asignar un nombre al contenedor, en este caso "SQLServer".
+
+* **-e 'ACCEPT_EULA=Y':** Este parámetro se utiliza para aceptar los términos de licencia de usuario final de Microsoft. El valor "Y" indica que se aceptan los términos, la cual es una variable de entorno.
+
+* **-e 'MSSQL_SA_PASSWORD=YOUR_PASS':** Este parámetro se utiliza para establecer una contraseña para la cuenta de administrador del servidor. Es importante utilizar una contraseña segura, la cual es una variable de entorno.
+
+* **-p 1433:1433:** Este parámetro se utiliza para exponer el puerto 1433 del contenedor al host. El formato es host_port:container_port
+
+* **-d:** Este parámetro especifica que el contenedor debe ejecutarse en segundo plano.
+
+* **mcr.microsoft.com/mssql/server:2022-latest:** Este es el nombre de la imagen de contenedor de Microsoft SQL Server 2022 más reciente que se utilizará para ejecutar el contenedor.
+
 El siguiente comando se utiliza para iniciar un contenedor detenido.
 ```
 docker start <container-name>
