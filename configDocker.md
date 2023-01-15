@@ -49,3 +49,23 @@ se usa para eliminar todos los contenedores detenidos.
 
 **$(docker ps -aq)** es una sustitución de comando, ejecutará el comando **docker ps -aq** y sustituirá la salida de ese comando como argumento del comando **docker rm**. El comando **docker ps -aq** enumera todos los ID de contenedor en el sistema, incluidos aquellos que están detenidos o inactivos.
 Entonces, este comando eliminará todos los contenedores que están detenidos actualmente, no eliminará los contenedores que se están ejecutando. Este comando es útil cuando desea limpiar contenedores detenidos y liberar espacio en disco. Sin embargo, es importante usar este comando con precaución, ya que eliminará todos los contenedores que no se estén ejecutando actualmente, lo que significa que si tiene datos importantes en esos contenedores, se perderán. Siempre es una buena práctica verificar dos veces la lista de contenedores antes de ejecutar este comando.
+
+```
+docker exec -it SQLServer /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P yourPass
+```
+
+Este comando utiliza el comando "docker exec" para ejecutar un comando dentro de un contenedor de Docker específico.
+
+* **"docker exec"** es utilizado para ejecutar un comando dentro de un contenedor existente.
+
+* **"-it"** es una bandera que indica que se deben asignar una entrada y una salida interactivas para el comando que se ejecuta.
+
+* **"SQLServer"** es el nombre o ID del contenedor en el cual se ejecutará el comando.
+
+* **"/opt/mssql-tools/bin/sqlcmd"** es la ruta del comando sqlcmd que se ejecutará dentro del contenedor.
+
+* **"-S localhost"** indica que se conectara a una instancia del servidor SQL en el host local.
+
+* **"-U sa"** indica que se usará el usuario "sa" para conectarse al servidor.
+
+* **"-P yourPass"** indica que se usara la contraseña "yourPass" para conectarse al servidor.
