@@ -40,3 +40,12 @@ docker logs <container_id>
 ```
 Se utiliza para ver los registros de un contenedor específico.
 Los registros pueden incluir información sobre la inicialización del contenedor, mensajes de error, registros de depuración y cualquier otra información generada por la aplicación o el servicio que se ejecuta en el contenedor. Los registros son útiles para solucionar problemas y depurar problemas con un contenedor específico.
+
+El comando 
+```
+docker rm $(docker ps -aq) 
+```
+se usa para eliminar todos los contenedores detenidos.
+
+**$(docker ps -aq)** es una sustitución de comando, ejecutará el comando **docker ps -aq** y sustituirá la salida de ese comando como argumento del comando **docker rm**. El comando **docker ps -aq** enumera todos los ID de contenedor en el sistema, incluidos aquellos que están detenidos o inactivos.
+Entonces, este comando eliminará todos los contenedores que están detenidos actualmente, no eliminará los contenedores que se están ejecutando. Este comando es útil cuando desea limpiar contenedores detenidos y liberar espacio en disco. Sin embargo, es importante usar este comando con precaución, ya que eliminará todos los contenedores que no se estén ejecutando actualmente, lo que significa que si tiene datos importantes en esos contenedores, se perderán. Siempre es una buena práctica verificar dos veces la lista de contenedores antes de ejecutar este comando.
